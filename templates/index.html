@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EWeather. The most important Estonian news.</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <style>
+        .navbar {
+          margin-bottom: 0;
+          border-radius: 0;
+        }
+        .row.content {height: 100%}
+        .sidenav {
+          padding-top: 20px;
+          height: 100%;
+        }
+        footer {
+          background-color: #555;
+          color: white;
+          padding: 20px;
+        }
+        @media screen and (max-width: 767px) {
+          .sidenav {
+            height: auto;
+            padding: 15px;
+          }
+          .row.content {height:auto;} 
+        }
+      </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse" style="background-color: #e3f2fd;">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                <img src="static/logo.png">
+                EWeather
+            </a>
+          </div>
+        </div>
+    </nav>
+      <div class="container-fluid">    
+        <div class="row content">
+          <div class="col-sm-2 sidenav">
+          </div>
+          <div class="col-sm-8 text-left"> 
+            <h1>Estonian news done right</h1>
+            <p>Our website aggregate the most important Estonian news. Weather news. Nothing more.</p>
+            <hr>
+            {% for i in entries %}
+            <div class="row gx-5">
+                <div class="col-md-4 mb-4">
+                  <div class="bg-image hover-overlay ripple shadow-2-strong rounded-5" data-mdb-ripple-color="light">
+                    <img src="{{ i.links[1].href }}" class="img-fluid" />
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                  <span class="badge bg-danger px-2 py-1 shadow-1-strong mb-3">{{ i.published }}</span>
+                  <h4><strong>{{ i.title }}</strong></h4>
+                  <p class="text-muted">
+                  {{ i.summary }}
+                  </p>
+                  <a href="{{ i.link }}" class="btn btn-primary">Read more</a>
+                </div>
+              </div>
+              {% endfor %}
+          </div>
+          <div class="col-sm-2 sidenav">
+          </div>
+        </div>
+      </div>
+      <footer class="container-fluid text-center" style="background-color: #e3f2fd;">
+        <a class="navbar-brand" href="#"><img src="static/facebook.png"></a>
+        <a class="navbar-brand" href="#"><img src="static/instagram.png"></a>
+      </footer>
+  </body>
+</html>
+</body>
+</html>
