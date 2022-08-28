@@ -2,6 +2,8 @@
 EWeather is an Estonian startup that provides the most important news. Weather news.  
 This repository contains the MVP version of the project.
 
+The site is available by http://eweather.eurotunnel.cloud/
+
 # How to run
 You can use the pre-built docker container that contains the latest application version.  
 Simply pull the container from the docker hub and run it:
